@@ -6,10 +6,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<header>My Library</header>
 <body>
     <div id="library-container">
-        
+        <div class="book-card">
+            <h3>The Hobbit</h3>
+            <p><strong>Author:</strong> J.R.R. Tolkien</p>
+            <p><strong>Pages:</strong> 310</p>
+            <p><strong>Read:</strong> Yes</p>
+        </div>
     </div>
+
+    <div id="book-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-author"></p>
+            <p id="modal-pages"></p>
+            <p id="modal-read"></p>
+            <img id="modal-cover"/>
+        </div>
+    </div>
+
+    <script src="logic.js"></script>
 </body>
-<script src="logic.js"></script>
 </html>
