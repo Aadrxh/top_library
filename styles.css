@@ -3,8 +3,8 @@ header{
     text-align: center;
     background-color: bisque;
     padding: 10px;
-    margin: -8px;
-    margin-bottom:5px;
+    margin: 0 0 5px 0;
+    border-radius: 0 0 8px 8px;
 }
 
 #library-container {
@@ -22,6 +22,8 @@ header{
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0,0, 0.2);
     cursor: pointer;
+    background: #fff;
+    overflow: hidden;
 }
 .book-card img{
     width: 100%;
@@ -52,7 +54,6 @@ header{
 }
 
 .book-card:hover .overlay {
-
   opacity: 1;
 }
 
@@ -74,9 +75,10 @@ header{
   justify-content: center;
   align-items: center;
   background-color: rgba(0,0,0,0.5); 
+  z-index: 1000;
 }
 .hidden{
-  display: none;
+  display: none !important;
 }
 
 .modal-content {
@@ -94,4 +96,96 @@ header{
   right: 15px;
   font-size: 34px;
   cursor: pointer;
+}
+#close-add-modal{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 34px;
+  cursor: pointer;
+  
+}
+.add-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 1001;
+}
+
+.add-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+.add-book-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    border: 2px dashed #bbb;
+    box-shadow: none;
+}
+
+input[type="text"], input[type="number"] {
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+button {
+    padding: 8px 18px;
+    border-radius: 4px;
+    border: none;
+    background: #ffb366;
+    color: #222;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #ff9800;
+    color: #fff;
+}
+.delete-btn, .toggle-read-btn {
+    margin: 8px 6px 6px 6px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #e57373;
+    color: #fff;
+    transition: background 0.2s;
+}
+.delete-btn:hover {
+    background: #c62828;
+}
+.toggle-read-btn {
+    background: #81c784;
+    color: #222;
+}
+.toggle-read-btn:hover {
+    background: #388e3c;
+    color: #fff;
+}
+.book-card button {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
 }

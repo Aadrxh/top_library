@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header>My Library</header>
 <body>
+    <header>My Library</header>
     <div id="library-container">
-        <div class="book-card">
-            <h3>The Hobbit</h3>
-            <p><strong>Author:</strong> J.R.R. Tolkien</p>
-            <p><strong>Pages:</strong> 310</p>
-            <p><strong>Read:</strong> Yes</p>
+        <div class="book-card add-book-card" id="add-book-card">
+            <div class="overlay">
+                <div class="overlay-text">+ Add Book</div>
+            </div>
         </div>
     </div>
 
@@ -25,6 +24,21 @@
             <p id="modal-pages"></p>
             <p id="modal-read"></p>
             <img id="modal-cover"/>
+        </div>
+    </div>
+
+    <div id="add-book-modal" class="add-modal hidden">
+        <div class="add-modal-content">
+            <span id="close-add-modal">&times;</span>
+            <h2>Add a New Book</h2>
+            <input type="text" id="new-title" placeholder="Title"><br><br>
+            <input type="text" id="new-author" placeholder="Author"><br><br>
+            <input type="number" id="new-page" placeholder="Pages"><br><br>
+            <input type="text" id="new-cover" placeholder="Image URL"><br><br>
+            <label>
+                <input type="checkbox" id="new-read">Read
+            </label><br><br>
+            <button id="submit-new-book">Add Book</button>
         </div>
     </div>
 
