@@ -47,30 +47,43 @@ document.addEventListener("DOMContentLoaded", function() {
             overlayText.classList.add("overlay-text");
             overlayText.textContent = book.title;
             overlay.append(overlayText);
-            card.append(overlay);
+
+            // Button container absolutely positioned over the image
+            const btnContainer = document.createElement('div');
+            btnContainer.style.position = 'absolute';
+            btnContainer.style.bottom = '10px';
+            btnContainer.style.left = '50%';
+            btnContainer.style.transform = 'translateX(-50%)';
+            btnContainer.style.display = 'flex';
+            btnContainer.style.justifyContent = 'center';
+            btnContainer.style.gap = '8px';
+            btnContainer.style.zIndex = '3';
 
             // Delete button
             const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
+            deleteBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>';
             deleteBtn.className = 'delete-btn';
+            deleteBtn.title = 'Delete';
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 lib.splice(idx, 1);
                 displayLibrary();
             });
-            card.appendChild(deleteBtn);
+            btnContainer.appendChild(deleteBtn);
 
             // Toggle read button
             const toggleReadBtn = document.createElement('button');
-            toggleReadBtn.textContent = book.read ? 'Mark as Unread' : 'Mark as Read';
+            toggleReadBtn.textContent = book.read ? 'Unread' : 'Read';
             toggleReadBtn.className = 'toggle-read-btn';
             toggleReadBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 book.read = !book.read;
                 displayLibrary();
             });
-            card.appendChild(toggleReadBtn);
+            btnContainer.appendChild(toggleReadBtn);
 
+            card.append(overlay);
+            card.appendChild(btnContainer);
             container.append(card);
 
             card.addEventListener('click',()=>{
@@ -90,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addtolibrary("Shrek", "William Steig", 310, true, "https://i.pinimg.com/236x/ee/4f/b1/ee4fb15c83d22e0a428fc37127191346.jpg");
     addtolibrary("JoJo's Bizarre Adventures", "Hirohiko Araki", 3000, true, "https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/JoJo_Part_1_Phantom_Blood.jpg/250px-JoJo_Part_1_Phantom_Blood.jpg");
-    addtolibrary("Monsters Inc", "Disney or smthing", 310, true, "https://static.tvtropes.org/pmwiki/pub/images/1000001460.png");
+    addtolibrary("Monsters Inc", "Disney or smthing", 310, false, "https://static.tvtropes.org/pmwiki/pub/images/1000001460.png");
     displayLibrary();
 
     document.getElementById("submit-new-book").addEventListener('click',()=>{
